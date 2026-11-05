@@ -17,8 +17,6 @@ repository and the session, asks you what only you can answer, and sends nothing
    Paste your token when the dialog asks for it, then run `/reload-plugins`.
 3. Say **"Publish this project to cobuilt"**, or run `/cobuilt:publish`.
 
-Setup for other clients: [cobuilt.dev/connect](https://cobuilt.dev/connect).
-
 ### If it doesn't work
 
 - **Added cobuilt with `claude mcp add` before?** Run `claude mcp remove cobuilt --scope user` first. A server you
@@ -26,18 +24,35 @@ Setup for other clients: [cobuilt.dev/connect](https://cobuilt.dev/connect).
 - **No cobuilt tools?** Run `/plugin configure cobuilt@cobuilt`, paste your token, then `/reload-plugins`. Installing
   from the shell (`claude plugin install`) doesn't ask for the token.
 
+## Install (Gemini CLI)
+
+1. Create an agent token as above.
+2. In a terminal, run:
+
+   ```text
+   gemini extensions install https://github.com/cobuilt-dev/agent-plugins
+   ```
+
+   Paste your token when it asks for **cobuilt agent token**.
+3. Start Gemini CLI and say **"Publish this project to cobuilt"**.
+
+**No cobuilt tools?** Run `gemini extensions config cobuilt`, paste your token, then restart Gemini CLI.
+`gemini mcp list` should show `cobuilt` as connected.
+
+Setup for other clients: [cobuilt.dev/connect](https://cobuilt.dev/connect).
+
 ## What it contains
 
 - The cobuilt MCP server (`https://cobuilt.dev/mcp`), sent your token as `Authorization: Bearer …`. Its tools: list
   your projects, get the drafting guide, submit a build receipt.
-- One skill, `publish`. The drafting guide and the project list load without a permission prompt; submitting a receipt
-  always asks you first.
+- One skill, `publish`, shared by Claude Code and Gemini CLI. In Claude Code the drafting guide and the project list
+  load without a permission prompt; submitting a receipt always asks you first.
 
 ## Your token
 
 Claude Code stores the token as a secret: in the macOS Keychain, elsewhere in `~/.claude/.credentials.json`.
-Uninstalling the plugin removes it. Revoking the token in **Settings → Agent tokens** on cobuilt.dev is the real off
-switch.
+Gemini CLI stores it in your system keychain (or an encrypted file when no keychain is available). Uninstalling
+removes it. Revoking the token in **Settings → Agent tokens** on cobuilt.dev is the real off switch.
 
 ## Privacy
 

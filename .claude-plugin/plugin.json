@@ -1,7 +1,7 @@
 {
   "name": "cobuilt",
   "displayName": "cobuilt",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Publish an honest build receipt for your project to cobuilt.dev: your agent drafts how the project was built and how AI was involved, you answer what only you know and approve every field before it is sent.",
   "author": { "name": "cobuilt-dev", "url": "https://github.com/cobuilt-dev" },
   "license": "MIT",
