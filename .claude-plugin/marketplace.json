@@ -1,0 +1,12 @@
+{
+  "name": "cobuilt",
+  "description": "The cobuilt plugin: publish build receipts to cobuilt.dev from your AI agent.",
+  "owner": { "name": "cobuilt-dev", "url": "https://github.com/cobuilt-dev" },
+  "plugins": [
+    {
+      "name": "cobuilt",
+      "source": "./",
+      "description": "Publish an honest build receipt for your project to cobuilt.dev: how it was built and how AI was involved."
+    }
+  ]
+}

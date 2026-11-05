@@ -1,0 +1,43 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Validate plugin and marketplace
+        run: claude plugin validate . --strict
+
+      - name: Every manifest has the same version
+        run: |
+          expected=$(jq -r .version .claude-plugin/plugin.json)
+          echo "plugin.json: $expected"
+          status=0
+          for f in gemini-extension.json .cursor-plugin/plugin.json server.json; do
+            [ -f "$f" ] || continue
+            v=$(jq -r .version "$f")
+            echo "$f: $v"
+            [ "$v" = "$expected" ] || { echo "::error file=$f::version $v does not match plugin.json $expected"; status=1; }
+          done
+          if [ "${GITHUB_REF_TYPE}" = "tag" ] && [ "${GITHUB_REF_NAME}" != "v$expected" ]; then
+            echo "::error::tag ${GITHUB_REF_NAME} does not match plugin.json version v$expected"
+            status=1
+          fi
+          exit $status

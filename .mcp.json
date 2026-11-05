@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "cobuilt": {
+      "type": "http",
+      "url": "https://cobuilt.dev/mcp",
+      "headers": { "Authorization": "Bearer ${user_config.agent_token}" }
+    }
+  }
+}

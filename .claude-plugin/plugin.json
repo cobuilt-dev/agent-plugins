@@ -1,0 +1,23 @@
+{
+  "name": "cobuilt",
+  "displayName": "cobuilt",
+  "version": "1.0.0",
+  "description": "Publish an honest build receipt for your project to cobuilt.dev: your agent drafts how the project was built and how AI was involved, you answer what only you know and approve every field before it is sent.",
+  "author": { "name": "cobuilt-dev", "url": "https://github.com/cobuilt-dev" },
+  "license": "MIT",
+  "homepage": "https://cobuilt.dev",
+  "repository": "https://github.com/cobuilt-dev/agent-plugins",
+  "documentationUrl": "https://cobuilt.dev/connect",
+  "privacyPolicyUrl": "https://cobuilt.dev/privacy",
+  "termsOfServiceUrl": "https://cobuilt.dev/terms",
+  "keywords": ["cobuilt", "build-receipt", "ai-transparency", "showcase", "mcp"],
+  "userConfig": {
+    "agent_token": {
+      "type": "string",
+      "title": "cobuilt agent token",
+      "description": "Create one at cobuilt.dev → Settings → Agent tokens (starts with cbt_).",
+      "sensitive": true,
+      "required": true
+    }
+  }
+}
