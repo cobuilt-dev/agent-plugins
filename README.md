@@ -23,6 +23,10 @@ repository and the session, asks you what only you can answer, and sends nothing
   added by hand at the same address silently replaces the plugin's.
 - **No cobuilt tools?** Run `/plugin configure cobuilt@cobuilt`, paste your token, then `/reload-plugins`. Installing
   from the shell (`claude plugin install`) doesn't ask for the token.
+- **Use Cursor too?** Cursor imports the Claude Code plugins you installed (**Cursor Settings → Agents → Third-Party
+  Imports**, on by default) and lists this one as "cobuilt · Plugin" with an error, because it can't read the token.
+  Switch that entry off in Cursor's MCP list (it stays off after a restart) and set Cursor up with the
+  `~/.cursor/mcp.json` snippet from [cobuilt.dev/connect](https://cobuilt.dev/connect).
 
 ## Install (Gemini CLI)
 
@@ -68,7 +72,7 @@ transcripts, secrets, environment variables or local file paths. See the
 ## Releases
 
 Each change bumps the version in every manifest and gets a GitHub Release tagged `vX.Y.Z`. Changes to the drafting
-guide and the tools ship on cobuilt.dev and need no plugin update.
+guide and the tools ship on cobuilt.dev and need no plugin update. Changes to this README alone don't bump the version.
 
 ## License
 
