@@ -55,7 +55,7 @@ Uninstalling the plugin removes it.
 
 Gemini CLI stores it in your system keychain (on Windows, Credential Manager under "Gemini CLI Extensions cobuilt …";
 without a keychain, `~/.gemini/gemini-credentials.json`). Uninstalling the extension does **not** remove it: delete
-that entry yourself.
+that entry yourself (on Windows: Control Panel → Credential Manager → Windows Credentials → Generic Credentials).
 
 Revoking the token in **Settings → Agent tokens** on cobuilt.dev is the real off switch.
 
