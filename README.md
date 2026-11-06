@@ -74,6 +74,10 @@ transcripts, secrets, environment variables or local file paths. See the
 Each change bumps the version in every manifest and gets a GitHub Release tagged `vX.Y.Z`. Changes to the drafting
 guide and the tools ship on cobuilt.dev and need no plugin update. Changes to this README alone don't bump the version.
 
+`server.json` lists the server in the [official MCP Registry](https://registry.modelcontextprotocol.io) as
+`dev.cobuilt/cobuilt`. It carries the same version as the plugin, and a published version can't be republished, so a change
+to it needs a release and then a new publish.
+
 ## License
 
 [MIT](LICENSE)

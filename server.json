@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "dev.cobuilt/cobuilt",
+  "title": "cobuilt",
+  "description": "Publish honest build receipts to cobuilt.dev: your agent drafts, you approve every field.",
+  "websiteUrl": "https://cobuilt.dev",
+  "repository": {
+    "url": "https://github.com/cobuilt-dev/agent-plugins",
+    "source": "github"
+  },
+  "version": "1.2.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://cobuilt.dev/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Your personal cobuilt agent token, sent as a bearer token.",
+          "value": "Bearer {token}",
+          "isRequired": true,
+          "isSecret": true,
+          "variables": {
+            "token": {
+              "description": "Create one at cobuilt.dev under Settings > Agent tokens (starts with cbt_).",
+              "isRequired": true,
+              "isSecret": true,
+              "placeholder": "cbt_..."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
