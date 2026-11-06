@@ -1,7 +1,7 @@
 ---
 name: publish
 description: Publish this project to cobuilt.dev as a build receipt. Use when the user asks to publish to cobuilt, post or update a build receipt, or share on cobuilt how the project was built with AI.
-allowed-tools: mcp__plugin_cobuilt_cobuilt__list_my_projects mcp__plugin_cobuilt_cobuilt__get_drafting_guide
+allowed-tools: mcp__plugin_cobuilt_cobuilt__list_my_projects mcp__plugin_cobuilt_cobuilt__get_drafting_guide mcp__plugin_cobuilt_cobuilt__get_my_receipt
 ---
 
 1. Call `get_drafting_guide` from the cobuilt MCP server and follow it exactly. It is the only source of the drafting
@@ -11,7 +11,7 @@ allowed-tools: mcp__plugin_cobuilt_cobuilt__list_my_projects mcp__plugin_cobuilt
 
 Never send source code, diffs, file contents, prompts, transcripts, secrets, environment variables or local file paths.
 
-If the cobuilt MCP tools (`list_my_projects`, `get_drafting_guide`, `submit_build_receipt`) are not available, don't
+If the cobuilt MCP tools (`list_my_projects`, `get_drafting_guide`, `get_my_receipt`, `submit_build_receipt`) are not available, don't
 improvise or draft without them. Tell the user the line for their client:
 
 - Claude Code: "No cobuilt tools? Run `/plugin configure cobuilt@cobuilt` and paste your agent token, then
