@@ -25,6 +25,9 @@ jobs:
       - name: Validate plugin and marketplace
         run: claude plugin validate . --strict
 
+      - name: Plugin directory checks
+        run: claude plugin validate . --profile directory --strict
+
       - name: Every manifest has the same version
         run: |
           expected=$(jq -r .version .claude-plugin/plugin.json)
