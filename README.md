@@ -1,8 +1,27 @@
 # cobuilt plugin
 
+[![mcptry](https://mcptry.com/badge/dev.cobuilt/cobuilt)](https://mcptry.com/servers/dev.cobuilt/cobuilt)
+
 Publish a build receipt for your project to [cobuilt.dev](https://cobuilt.dev) from your AI coding agent. A build
 receipt is an honest record of how a project was built and how AI was involved. Your agent drafts it from the
 repository and the session, asks you what only you can answer, and sends nothing until you have approved every field.
+
+## Where it works
+
+Publishing works in Claude Code and Gemini CLI, which can send your agent token. In claude.ai chat and Cowork the skill
+loads but the cobuilt tools don't work, because those apps connect servers through an OAuth sign-in, which cobuilt
+doesn't offer yet. Open your project in Claude Code to publish.
+
+## Try it
+
+Say any of these in your project:
+
+- "Publish this project to cobuilt." Your agent drafts the receipt, asks what it can't know, and shows you the final
+  fields to approve.
+- "Show me the build receipt this project has on cobuilt." It finds the project among yours and reads the current
+  receipt. Nothing is changed.
+- "Update this project's build receipt on cobuilt." It starts from the published receipt, shows you the old and new text
+  side by side, and warns you before replacing anything.
 
 ## Install (Claude Code)
 
@@ -23,6 +42,8 @@ repository and the session, asks you what only you can answer, and sends nothing
   added by hand at the same address silently replaces the plugin's.
 - **No cobuilt tools?** Run `/plugin configure cobuilt@cobuilt`, paste your token, then `/reload-plugins`. Installing
   from the shell (`claude plugin install`) doesn't ask for the token.
+- **Added the plugin on claude.ai?** It reaches Claude Code as `cobuilt@synced`, so run
+  `/plugin configure cobuilt@synced` instead.
 - **Use Cursor too?** Cursor imports the Claude Code plugins you installed (**Cursor Settings → Agents → Third-Party
   Imports**, on by default) and lists this one as "cobuilt · Plugin" with an error, because it can't read the token.
   Switch that entry off in Cursor's MCP list (it stays off after a restart) and set Cursor up with the
@@ -63,11 +84,22 @@ that entry yourself (on Windows: Control Panel → Credential Manager → Window
 
 Revoking the token in **Settings → Agent tokens** on cobuilt.dev is the real off switch.
 
-## Privacy
+## What it sends and where
 
-Only the receipt fields you approved are sent. The plugin never sends source code, diffs, file contents, prompts, chat
-transcripts, secrets, environment variables or local file paths. See the
-[privacy policy](https://cobuilt.dev/privacy) and [terms](https://cobuilt.dev/terms).
+The plugin runs nothing on your machine: no hooks, scripts or local commands. It talks to one server,
+`https://cobuilt.dev/mcp`, and every request carries your agent token.
+
+- **Reading:** your agent asks for the drafting guide, your list of projects and a project's current receipt.
+- **Publishing:** after you approve, it sends the receipt: project title, description, links, type and tech stack (for
+  a new project), how AI was involved, the AI tools used, what the AI did, what you did, what went wrong, the agent and
+  model names, and optional summary numbers such as commit counts.
+
+A submitted receipt is public once its project is approved, and a new project is reviewed first. Sending a receipt for
+an existing project replaces its current one. cobuilt keeps the receipt until you replace it or delete the project.
+
+The plugin's instructions tell your agent never to send source code, diffs, file contents, prompts, chat transcripts,
+secrets, environment variables or local file paths. Your agent shows you every field first, so check them before you
+approve. See the [privacy policy](https://cobuilt.dev/privacy) and [terms](https://cobuilt.dev/terms).
 
 ## Releases
 

@@ -14,8 +14,10 @@ Never send source code, diffs, file contents, prompts, transcripts, secrets, env
 If the cobuilt MCP tools (`list_my_projects`, `get_drafting_guide`, `get_my_receipt`, `submit_build_receipt`) are not available, don't
 improvise or draft without them. Tell the user the line for their client:
 
-- Claude Code: "No cobuilt tools? Run `/plugin configure cobuilt@cobuilt` and paste your agent token, then
-  `/reload-plugins`. If you added cobuilt with `claude mcp add` before, run `claude mcp remove cobuilt --scope user`
-  first."
+- Claude Code: "No cobuilt tools? Run `/plugin configure cobuilt@cobuilt` (if you added the plugin on claude.ai:
+  `/plugin configure cobuilt@synced`) and paste your agent token, then `/reload-plugins`. If you added cobuilt with
+  `claude mcp add` before, run `claude mcp remove cobuilt --scope user` first."
 - Gemini CLI: "No cobuilt tools? Run `gemini extensions config cobuilt` in a terminal, paste your agent token, then
   restart Gemini CLI."
+- claude.ai chat or Cowork: "cobuilt connects with an agent token, which this app can't send yet, so publishing doesn't
+  work here. Open this project in Claude Code and publish from there; the setup is at https://cobuilt.dev/connect."
