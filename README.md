@@ -70,8 +70,8 @@ Setup for other clients: [cobuilt.dev/connect](https://cobuilt.dev/connect).
 
 - The cobuilt MCP server (`https://cobuilt.dev/mcp`), sent your token as `Authorization: Bearer …`. Its tools: list
   your projects, get the drafting guide, read your current receipt, submit a build receipt.
-- One skill, `publish`, shared by Claude Code and Gemini CLI. In Claude Code the drafting guide, the project list and
-  your current receipt load without a permission prompt; submitting a receipt always asks you first.
+- One skill, `publish`, shared by Claude Code and Gemini CLI. Your client asks before each cobuilt tool call unless you
+  allow it, and submitting a receipt always asks you first.
 
 ## Your token
 

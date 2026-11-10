@@ -1,7 +1,6 @@
 ---
 name: publish
 description: Publish this project to cobuilt.dev as a build receipt. Use when the user asks to publish to cobuilt, post or update a build receipt, or share on cobuilt how the project was built with AI.
-allowed-tools: mcp__plugin_cobuilt_cobuilt__list_my_projects mcp__plugin_cobuilt_cobuilt__get_drafting_guide mcp__plugin_cobuilt_cobuilt__get_my_receipt
 ---
 
 1. Call `get_drafting_guide` from the cobuilt MCP server and follow it exactly. It is the only source of the drafting
