@@ -75,11 +75,12 @@ Setup for other clients: [cobuilt.dev/connect](https://cobuilt.dev/connect).
 
 ## Your token
 
-Claude Code stores the token as a secret: in the macOS Keychain, elsewhere in `~/.claude/.credentials.json`.
+Claude Code stores the token as a secret: in the macOS Keychain, elsewhere in Claude Code's own credentials file in your
+user folder.
 Uninstalling the plugin removes it.
 
 Gemini CLI stores it in your system keychain (on Windows, Credential Manager under "Gemini CLI Extensions cobuilt …";
-without a keychain, `~/.gemini/gemini-credentials.json`). Uninstalling the extension does **not** remove it: delete
+without a keychain, in a file in Gemini CLI's own settings folder). Uninstalling the extension does **not** remove it: delete
 that entry yourself (on Windows: Control Panel → Credential Manager → Windows Credentials → Generic Credentials).
 
 Revoking the token in **Settings → Agent tokens** on cobuilt.dev is the real off switch.
