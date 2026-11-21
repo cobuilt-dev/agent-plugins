@@ -29,3 +29,4 @@ Each client reads its own file; all describe the same plugin.
 - Never put a real `cbt_` token in any file. Placeholders only.
 - `.claude/settings.local.json` is local; don't commit it.
 - Line endings are LF (`.gitattributes`); `icon.png` is binary.
+- Keep this file at `.claude/CLAUDE.md`. The repo root is the plugin root, and a root `CLAUDE.md` fails `claude plugin validate . --strict` in CI.
